@@ -1,33 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { ETypes, MessageCard } from '../../components/Atoms/MessageCard';
 import { LockClosedIcon } from '@heroicons/react/20/solid';
-import { ETypes, MessageCard } from '../../components/atoms/MessageCard';
-import { SpacerWithText } from '../../components/atoms/SpacerWithText';
-import { SocialSignIn } from '../../components/SocialSignIn';
 
-export default function Login() {
+export default function ForgotPassword() {
     const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
-    const { login, currentUser } = useAuth();
-    const [error, setError] = useState('');
+    const { resetPassword } = useAuth();
+    const [messageType, setMessageType] = useState<ETypes>(ETypes.DANGER);
+    const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (currentUser) navigate('/');
-    }, []);
 
     async function handleSubmit(e: { preventDefault: () => void }) {
         e.preventDefault();
 
         try {
-            setError('');
+            setMessage('');
             setLoading(true);
-            await login(emailRef.current?.value, passwordRef.current?.value);
-            navigate('/');
+            await resetPassword(emailRef.current?.value);
+            setMessageType(ETypes.SUCCESS);
+            setMessage('Check your inbox for further instructions');
         } catch {
-            setError('Failed to log in');
+            setMessageType(ETypes.DANGER);
+            setMessage('Failed to reset password');
         }
 
         setLoading(false);
@@ -44,10 +39,15 @@ export default function Login() {
                             alt="Your Company"
                         />
                         <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-                            Sign in to your account
+                            Password Reset
                         </h2>
                     </div>
-                    <MessageCard message={error} type={ETypes.DANGER} visible={!!error} />
+                    <MessageCard
+                        title={messageType == ETypes.SUCCESS ? 'Success' : 'Error'}
+                        message={message}
+                        type={messageType}
+                        visible={!!message}
+                    />
                     <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                         <input type="hidden" name="remember" defaultValue="true" />
                         <div className="-space-y-px rounded-md shadow-sm">
@@ -66,44 +66,6 @@ export default function Login() {
                                     placeholder="Email address"
                                 />
                             </div>
-                            <div>
-                                <label htmlFor="password" className="sr-only">
-                                    Password
-                                </label>
-                                <input
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    ref={passwordRef}
-                                    autoComplete="current-password"
-                                    required
-                                    className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                    placeholder="Password"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                                <input
-                                    id="remember-me"
-                                    name="remember-me"
-                                    type="checkbox"
-                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                                    Remember me
-                                </label>
-                            </div>
-
-                            <div className="text-sm">
-                                <Link
-                                    className="font-medium text-indigo-600 hover:text-indigo-500"
-                                    to="/forgot-password"
-                                >
-                                    Forgot your password?
-                                </Link>
-                            </div>
                         </div>
 
                         <div>
@@ -118,18 +80,15 @@ export default function Login() {
                                         aria-hidden="true"
                                     />
                                 </span>
-                                Sign in
+                                Sign up
                             </button>
                         </div>
                         <div className="text-sm text-center">
-                            <Link className="font-medium text-indigo-600 hover:text-indigo-500" to="/signup">
-                                Don't have an account?
+                            <Link className="font-medium text-indigo-600 hover:text-indigo-500" to="/login">
+                                Back to login
                             </Link>
                         </div>
                     </form>
-
-                    <SpacerWithText text="or" />
-                    <SocialSignIn setError={setError} enabled={!loading} />
                 </div>
             </div>
         </>
