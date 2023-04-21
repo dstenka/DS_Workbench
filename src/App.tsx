@@ -18,7 +18,6 @@ function App() {
                     <Routes>
                         <Route index element={<Dashboard />} />
                         <Route path="settings" element={<Settings />} />
-                        <Route path="login" element={<Login />} />
                     </Routes>
                 </div>
             </div>
