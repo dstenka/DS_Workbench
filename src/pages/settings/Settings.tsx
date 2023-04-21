@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Tab, initTE } from 'tw-elements';
 import SettingContent from './SettingContent';
 import TextInput from './../../components/core/forms/TextInput';
