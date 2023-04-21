@@ -10,13 +10,13 @@ class Sidebar extends Component {
         return (
             <div className="fixed top-0 left-0 h-screen w-16 flex flex-col bg-white dark:bg-gray-900 shadow-lg">
                 {/* transition-transform -translate-x-full sm:translate-x-0 */}
-                <SidebarIcon icon={<FaFire size="28" />} text="" />
+                <SidebarIcon icon={<FaFire size="28" />} text="Dashboard" link="/" />
                 <Divider />
-                <SidebarIcon icon={<BsPlus size="32" />} text="" />
-                <SidebarIcon icon={<BsFillLightningFill size="20" />} text="" />
-                <SidebarIcon icon={<FaPoo size="20" />} text="" />
+                <SidebarIcon icon={<BsPlus size="32" />} text="" link="" />
+                <SidebarIcon icon={<BsFillLightningFill size="20" />} text="" link="" />
+                <SidebarIcon icon={<FaPoo size="20" />} text="" link="" />
                 <Divider />
-                <SidebarIcon icon={<BsGearFill size="22" />} text="" />
+                <SidebarIcon icon={<BsGearFill size="22" />} text="Settings" link="/settings" />
             </div>
         );
     }
