@@ -1,5 +1,5 @@
 export interface SettingContentProps {
-    children: string;
+    children: JSX.Element;
 }
 
 export default function SettingContent(props: SettingContentProps): JSX.Element {

@@ -91,7 +91,7 @@ const Settings = () => {
                             </div>
 
                             <div className="flex justify-end">
-                                <button type="button" class="btn btn-green right-0" onClick={handleUpdateUser}>
+                                <button type="button" className="btn btn-green right-0" onClick={handleUpdateUser}>
                                     Save
                                 </button>
                             </div>

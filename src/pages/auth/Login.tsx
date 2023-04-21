@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { LockClosedIcon } from '@heroicons/react/20/solid';
-import { ETypes, MessageCard } from '../../components/atoms/MessageCard';
-import { SpacerWithText } from '../../components/atoms/SpacerWithText';
 import { SocialSignIn } from '../../components/SocialSignIn';
+import { SpacerWithText } from '../../components/atoms/SpacerWithText';
+import { ETypes, MessageCard } from '../../components/atoms/MessageCard';
 
 export default function Login() {
     const emailRef = useRef<HTMLInputElement>(null);

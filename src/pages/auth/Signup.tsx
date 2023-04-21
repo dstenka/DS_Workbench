@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { SpacerWithText } from '../../components/Atoms/SpacerWithText';
+import { SpacerWithText } from '../../components/atoms/SpacerWithText';
 import { LockClosedIcon } from '@heroicons/react/20/solid';
-import { ETypes, MessageCard } from '../../components/Atoms/MessageCard';
 import { SocialSignIn } from '../../components/SocialSignIn';
+import { ETypes, MessageCard } from '../../components/atoms/MessageCard';
 
 export default function Signup() {
     const emailRef = useRef<HTMLInputElement>(null);

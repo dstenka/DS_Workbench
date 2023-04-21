@@ -9,7 +9,7 @@ export interface TextInputProps {
 export default function TextInput(props: TextInputProps) {
     return (
         <div className="relative">
-            <div class="relative">
+            <div className="relative">
                 <input
                     type={props.type}
                     id={props.id}

@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
-import { ETypes, MessageCard } from '../../components/Atoms/MessageCard';
 import { LockClosedIcon } from '@heroicons/react/20/solid';
+import { ETypes, MessageCard } from '../../components/atoms/MessageCard';
 
 export default function ForgotPassword() {
     const emailRef = useRef<HTMLInputElement>(null);
