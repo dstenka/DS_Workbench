@@ -1,5 +1,7 @@
 import { FaHashtag, FaMoon, FaSun } from 'react-icons/fa';
+import { BiLogOut } from 'react-icons/bi';
 import useColorMode from './../../hooks/useColorMode';
+import { useAuth } from '../../contexts/AuthContext';
 
 const TopNavigation = () => {
     return (
@@ -7,6 +9,7 @@ const TopNavigation = () => {
             <HashtagIcon />
             <Title />
             <ThemeIcon />
+            <LogoutIcon />
         </div>
     );
 };
@@ -24,6 +27,12 @@ const ThemeIcon = () => {
             )}
         </span>
     );
+};
+
+const LogoutIcon = () => {
+    const { logout } = useAuth();
+
+    return <BiLogOut size="24" className="top-navigation-icon" onClick={() => logout()} />;
 };
 
 const Title = () => <h5 className="title-text">tailwind-css</h5>;
