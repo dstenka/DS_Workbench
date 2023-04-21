@@ -1,15 +1,12 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+
+import Login from './pages/auth/Login';
+import Dashboard from './pages/dashboard/Dashboard';
+import Settings from './pages/settings/Settings';
+
 import Sidebar from './components/sidebar/Sidebar';
 import TopNavigation from './components/topNavigation/TopNavigation';
-
-const Home = () => {
-    return <div>Home</div>;
-};
-
-const Settings = () => {
-    return <div>Settings</div>;
-};
 
 function App() {
     return (
@@ -19,8 +16,9 @@ function App() {
                 <TopNavigation />
                 <div className="content">
                     <Routes>
-                        <Route index element={<Home />} />
+                        <Route index element={<Dashboard />} />
                         <Route path="settings" element={<Settings />} />
+                        <Route path="login" element={<Login />} />
                     </Routes>
                 </div>
             </div>
