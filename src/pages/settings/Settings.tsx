@@ -29,7 +29,7 @@ const Settings = () => {
 
     return (
         <>
-            <div className="sm:grid grid-flow-col sm:grid-cols-[20%_80%] gab-4 w-max sm:w-auto">
+            <div className="sm:grid sm:grid-flow-col sm:grid-cols-[20%_80%] gab-4 sm:w-auto">
                 <div className="col-span-1">
                     <ul className="mr-4 flex list-none flex-col flex-wrap pl-0" data-te-nav-ref>
                         <li className="flex-grow text-center">
@@ -72,7 +72,7 @@ const Settings = () => {
                     </ul>
                 </div>
                 <div className="col-span-10">
-                    <div className="my-2">
+                    <div className="my-2 mr-4">
                         <div
                             className="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
                             id="my-profile"
@@ -91,7 +91,7 @@ const Settings = () => {
                             </div>
 
                             <div className="flex justify-end">
-                                <button type="button" className="btn btn-green right-0" onClick={handleUpdateUser}>
+                                <button type="button" className="btn btn-green" onClick={handleUpdateUser}>
                                     Save
                                 </button>
                             </div>

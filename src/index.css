@@ -65,7 +65,7 @@
     }
 
     .content-container .content {
-        @apply pl-20 sm:px-20 py-3 text-gray-700 dark:text-gray-300;
+        @apply pl-20 py-3 text-gray-700 dark:text-gray-300;
     }
 
     .dropdown {
@@ -134,13 +134,18 @@
         peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1;
     }
 
-    .btn.btn-green {
+    .btn {
         @apply flex flex-row items-center justify-center
-        px-5 py-2.5 mr-2 my-4
-        bg-green-600 hover:bg-green-600
+        px-5 py-2.5 my-4 w-full sm:w-auto
+        bg-white hover:bg-white
         text-white
         rounded-lg
         transition duration-300 ease-in-out;
+    }
+
+    .btn.btn-green {
+        @apply bg-green-600 hover:bg-green-600
+        text-white;
     }
 }
 
