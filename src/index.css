@@ -65,7 +65,7 @@
     }
 
     .content-container .content {
-        @apply px-20 py-3 text-gray-700 dark:text-gray-300;
+        @apply pl-20 sm:px-20 py-3 text-gray-700 dark:text-gray-300;
     }
 
     .dropdown {
@@ -98,10 +98,49 @@
 
     .dropdown-selection-text {
         @apply text-gray-500 font-semibold tracking-wide
-        mr-auto 
+        mr-auto
         transition duration-300 ease-in-out 
         hover:text-pink-500 dark:hover:text-gray-500
         cursor-pointer;
+    }
+
+    .Toastify__toast svg {
+        @apply fill-green-600;
+    }
+
+    .Toastify__toast .Toastify__progress-bar--success {
+        @apply bg-green-600;
+    }
+
+    .Toastify__toast .Toastify__progress-bar--error {
+        @apply bg-red-600;
+    }
+
+    .text-input {
+        @apply block px-2.5 pb-2.5 pt-4 w-full
+        text-sm text-gray-900 dark:text-white
+        rounded-lg appearance-none bg-transparent
+        border-gray-300 focus:border-green-600 dark:border-gray-600 dark:focus:border-green-500 
+        focus:outline-none focus:ring-0;
+    }
+
+    .text-input-label {
+        @apply absolute text-sm text-gray-500 dark:text-gray-400
+        duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]
+        bg-gray-100 dark:bg-gray-700
+        px-2 peer-focus:px-2
+        hover:cursor-text
+        peer-focus:text-green-600 peer-focus:dark:text-green-500
+        peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1;
+    }
+
+    .btn.btn-green {
+        @apply flex flex-row items-center justify-center
+        px-5 py-2.5 mr-2 my-4
+        bg-green-600 hover:bg-green-600
+        text-white
+        rounded-lg
+        transition duration-300 ease-in-out;
     }
 }
 

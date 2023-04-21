@@ -35,7 +35,7 @@ const LogoutIcon = () => {
     return <BiLogOut size="24" className="top-navigation-icon" onClick={() => logout()} />;
 };
 
-const Title = () => <h5 className="title-text">tailwind-css</h5>;
+const Title = () => <h5 className="title-text">DS Workbench</h5>;
 const HashtagIcon = () => <FaHashtag size="20" className="title-hashtag" />;
 
 export default TopNavigation;

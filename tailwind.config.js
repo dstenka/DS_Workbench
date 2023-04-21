@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     mode: 'jit',
-    content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    content: ['./src/**/*.{js,jsx,ts,tsx}', './node_modules/tw-elements/dist/js/**/*.js'],
     darkMode: 'class',
     theme: {
         extend: {
@@ -22,5 +22,5 @@ export default {
             },
         },
     },
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [require('@tailwindcss/forms'), require('tw-elements/dist/plugin.cjs')],
 };

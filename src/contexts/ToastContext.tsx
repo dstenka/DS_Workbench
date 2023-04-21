@@ -31,7 +31,7 @@ export function ToastProvider({ children }: IToastProviderProps): JSX.Element {
         progress = undefined,
     ): void {
         toast[type](message, {
-            position: 'bottom-right',
+            position: 'top-right',
             autoClose: autoClose,
             hideProgressBar: hideProgressBar,
             closeOnClick: closeOnClick,
@@ -51,7 +51,7 @@ export function ToastProvider({ children }: IToastProviderProps): JSX.Element {
         progress = undefined,
     ) {
         toast(message, {
-            position: 'bottom-right',
+            position: 'top-right',
             autoClose: autoClose,
             hideProgressBar: hideProgressBar,
             closeOnClick: closeOnClick,
@@ -63,7 +63,7 @@ export function ToastProvider({ children }: IToastProviderProps): JSX.Element {
 
     function showError(message: string, code?: string) {
         toast.error(!!code ? `${code} - ${message}` : message, {
-            position: 'bottom-right',
+            position: 'top-right',
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -81,7 +81,7 @@ export function ToastProvider({ children }: IToastProviderProps): JSX.Element {
     return (
         <ToastContext.Provider value={value}>
             <ToastContainer
-                position="bottom-right"
+                position="top-right"
                 autoClose={5000}
                 hideProgressBar={false}
                 newestOnTop={false}
