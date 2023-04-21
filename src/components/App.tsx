@@ -12,9 +12,6 @@ import Dashboard from '../pages/dashboard/Dashboard';
 import Settings from '../pages/settings/Settings';
 import ForgotPassword from '../pages/auth/ForgotPassword';
 
-import Sidebar from './sidebar/Sidebar';
-import TopNavigation from './topNavigation/TopNavigation';
-
 function App() {
     const providers = [ToastProvider, AuthProvider, ApiProvider];
 
