@@ -16,7 +16,7 @@ export function ApiProvider({ children }: IApiProviderProps): JSX.Element {
     const { getCurrentUserToken } = useAuth();
 
     const axiosConfig: AxiosRequestConfig = {
-        baseURL: import.meta.env.VITE_API_URL,
+        baseURL: 'https://ds-workbench-81187.firebaseapp.com',
     };
     const api = axios.create(axiosConfig);
 
