@@ -5,11 +5,17 @@ import TextInput from './../../components/core/forms/TextInput';
 import { useAuth } from './../../contexts/AuthContext';
 import { updateProfile } from 'firebase/auth';
 import { useToast, EToastTypes } from './../../contexts/ToastContext';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+
+import SettingsMasterData from './tabs/SettingsMasterData';
+import SettingsResetPassword from './tabs/SettingsResetPassword';
 
 const Settings = () => {
     const { showTypedToast } = useToast();
-    const { currentUser } = useAuth();
+    const { currentUser, updatePassword } = useAuth();
     const [name, setName] = useState(currentUser?.displayName ?? '');
+    const [newPassword, setNewPassword] = useState('');
+    const [newPasswordConfirm, setNewPasswordConfirm] = useState('');
 
     useEffect(() => {
         initTE({ Tab });
@@ -22,6 +28,15 @@ const Settings = () => {
             }).then(() => {
                 showTypedToast(EToastTypes.SUCCESS, 'Profil aktualisiert');
             });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleResetPassword = async () => {
+        try {
+            const result = await updatePassword(newPassword);
+            console.log(result);
         } catch (error) {
             console.log(error);
         }
@@ -73,36 +88,14 @@ const Settings = () => {
                 </div>
                 <div className="col-span-10">
                     <div className="my-2 mr-4">
-                        <div
-                            className="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-                            id="my-profile"
-                            data-te-tab-active
-                        >
-                            <div className="grid grid-flow-col gap-4">
-                                <SettingContent>
-                                    <TextInput
-                                        label="Name"
-                                        id="settings_myprofile_name"
-                                        type="text"
-                                        value={name}
-                                        setValue={(name) => setName(name)}
-                                    />
-                                </SettingContent>
-                            </div>
-
-                            <div className="flex justify-end">
-                                <button type="button" className="btn btn-green" onClick={handleUpdateUser}>
-                                    Save
-                                </button>
-                            </div>
-                        </div>
-                        <div
-                            className="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-                            id="reset-password"
-                            aria-labelledby="tabs-profile-tab03"
-                        >
-                            Passwort ändern
-                        </div>
+                        <SettingsMasterData handleUpdateUser={handleUpdateUser} name={name} setName={setName} />
+                        <SettingsResetPassword
+                            handleResetPassword={handleResetPassword}
+                            newPassword={newPassword}
+                            setNewPassword={setNewPassword}
+                            newPasswordConfirm={newPasswordConfirm}
+                            setNewPasswordConfirm={setNewPasswordConfirm}
+                        />
                     </div>
                 </div>
             </div>

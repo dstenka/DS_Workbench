@@ -4,24 +4,23 @@ export interface TextInputProps {
     id: string;
     value: string;
     setValue: (value: string) => void;
+    onChagne?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function TextInput(props: TextInputProps) {
     return (
         <div className="relative">
-            <div className="relative">
-                <input
-                    type={props.type}
-                    id={props.id}
-                    className="text-input peer"
-                    placeholder=" "
-                    onChange={(e) => props.setValue(e.target.value)}
-                    value={props.value}
-                />
-                <label htmlFor={props.id} className="text-input-label">
-                    {props.label}
-                </label>
-            </div>
+            <input
+                type={props.type}
+                id={props.id}
+                className="text-input peer"
+                placeholder=" "
+                onChange={(e) => props.setValue(e.target.value)}
+                value={props.value}
+            />
+            <label htmlFor={props.id} className="text-input-label">
+                {props.label}
+            </label>
         </div>
     );
 }
